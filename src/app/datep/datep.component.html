@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row justify-content-center datepic">
+        <div class="col col-md-4">
+            <form [formGroup]="myform" #datp=ngForm (ngSubmit)=onSubmit(datp)>
+                <div class="form-group">
+                    Select Date:<input type="text" formControlName="selectdate" required placeholder="Selet the date"
+                        class="form-control" [minDate]="minDate" [maxDate]="maxDate" bsDatepicker
+                        [ngClass]="{'is-invalid': submitted && myform.controls.selectdate.errors}">
+                </div>
+                <div *ngIf="submitted && myform.controls.selectdate.errors">
+                    <div *ngIf="myform.controls.selectdate.errors.required">Date is required</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
